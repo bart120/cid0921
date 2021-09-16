@@ -31,12 +31,17 @@ export default {
                         {
                             label: 'Ajouter une voiture',
                             icon: 'pi pi-fw pi-file',
-                    to: '/cars/add'
+                            to: '/cars/add'
                         },
 {
                             label: 'Lister les voitures',
                             icon: 'pi pi-fw pi-file',
-                    to: '/cars/list'
+                            to: '/cars/list'
+                        },
+                        {
+                            label: 'Rechercher',
+                            icon: 'pi pi-fw pi-file',
+                            to: '/cars/search'
                         }
                     ]
                 },

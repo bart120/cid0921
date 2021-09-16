@@ -6,6 +6,7 @@
     "dev": "vite"
   },
   "dependencies": {
+    "axios": "^0.21.4",
     "primeicons": "^4.1.0",
     "primevue": "^3.7.1",
     "vue": "^3.0.4",

@@ -8,6 +8,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 //import CarsAddPage from './components/pages/cars/CarsAddPage.vue'
 import HomePage from './components/pages/HomePage.vue'
 import LoginPage from './components/pages/authentication/LoginPage.vue'
+import CarsSearchPage from './components/pages/cars/CarsSearchPage.vue'
 
 const CarsAddPage = () => import(/* webpackChunckName: "cars" */ './components/pages/cars/CarsAddPage.vue')
 const CarsListPage = () => import(/* webpackChunckName: "cars" */ './components/pages/cars/CarsListPage.vue')
@@ -15,6 +16,7 @@ const CarsListPage = () => import(/* webpackChunckName: "cars" */ './components/
 const routes = [
     { path: '/cars/add', component: CarsAddPage },
     { path: '/cars/list', component: CarsListPage },
+    { path: '/cars/search', component: CarsSearchPage },
     { path: '/login', component: LoginPage },
     //{ path: '/cars/detail/:id', component: CarsListPage },
     { path: '/', component: HomePage }

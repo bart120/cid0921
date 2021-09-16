@@ -3,14 +3,13 @@
     <div>
         <h1>Connexion</h1>
         <div>
-            <label>Login</label>
-            <br/>
-            <InputCid v-model="user.login" type="text"  color="red" />
+            
+            <InputMailLabel label="Login" name="login" v-model="user.login" type="text" emptyColor="green" @errorMail="onError" />
         </div>
         <div>
             <label>Mot de passe</label>
             <br/>
-            <input v-model="user.password" type="password" />
+            <InputCid v-model="user.password" type="password" emptyColor="red" />
         </div>
         <div>
             <button type="submit">Se connecter</button>
@@ -34,6 +33,9 @@ methods:{
             console.log(this.user);
             //appel serveur
             this.$router.push({path:"/"});
+        },
+        onError(obj){
+            console.log('error: ', obj);
         }
     },
 }
@@ -41,10 +43,7 @@ methods:{
 
 <script setup>
 import InputCid from '../../core/InputCid.vue'
+import InputMail from '../../core/InputMail.vue'
+import InputMailLabel from '../../core/InputMailLabel.vue'
 </script>
 
-<style scoped>
-.empty{
-    background-color: brown;
-}
-</style>
