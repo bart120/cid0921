@@ -5,7 +5,7 @@
         <div>
             <label>Login</label>
             <br/>
-            <input v-model="user.login" type="text" v-bind:class="{'empty': login==''}" />
+            <InputCid v-model="user.login" type="text"  color="red" />
         </div>
         <div>
             <label>Mot de passe</label>
@@ -21,7 +21,7 @@
 
 <script>
 export default {
-    data(){
+data(){
         return{
             user:{
                 login:'',
@@ -29,14 +29,18 @@ export default {
             }
         };
     },
-    methods:{
+methods:{
         submit(){
             console.log(this.user);
             //appel serveur
             this.$router.push({path:"/"});
         }
-    }
+    },
 }
+</script>
+
+<script setup>
+import InputCid from '../../core/InputCid.vue'
 </script>
 
 <style scoped>

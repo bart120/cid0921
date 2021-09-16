@@ -1,22 +1,57 @@
 <template>
 <nav>
-    <ul>
-        <li><router-link to="/">Accueil</router-link></li>
-        <li><router-link to="/cars/add">Ajouter une voiture</router-link></li>
-        <li><router-link to="/cars/list">Voitures</router-link></li>
-        <li><router-link to="/login">Se connecter</router-link></li>
-    </ul>
-    
+    <Menubar :model="items">
+        <template #items>
+            <router-link :to="item.to">{{item.label}}</router-link>
+        </template>
+        </Menubar>  
   
   
   </nav>
 </template>
 
+<script setup>
+import Menubar from 'primevue/menubar'
+</script>
 <script>
+
 export default {
-    
+    data(){
+        return{
+            items: [
+                {
+                    label: 'Accueil',
+                    icon: 'pi pi-fw pi-file',
+                    to: '/'
+                },
+                {
+                    label: 'Voitures',
+                    icon: 'pi pi-fw pi-file',
+                    items:[
+                        {
+                            label: 'Ajouter une voiture',
+                            icon: 'pi pi-fw pi-file',
+                    to: '/cars/add'
+                        },
+{
+                            label: 'Lister les voitures',
+                            icon: 'pi pi-fw pi-file',
+                    to: '/cars/list'
+                        }
+                    ]
+                },
+                {
+                            label: 'Se connecter',
+                            icon: 'pi pi-fw pi-file',
+                    to: '/login'
+                        }
+                
+            ]
+        }
+    }
 }
 </script>
+
 
 <style scoped>
 ul li{
@@ -29,3 +64,4 @@ ul{
     width: 70vw;
 }
 </style>
+
