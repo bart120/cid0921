@@ -12,3 +12,7 @@ export function getBrands() {
         return Promise.resolve(data);
     });
 }
+
+export function getBrandById(id) {
+    return UtilService.getByURL(`${URL}/${id}`);
+}
