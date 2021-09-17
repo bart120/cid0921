@@ -1,4 +1,5 @@
 <template>
+<div>
     <h1>Ajouter une voiture</h1>
     <form @submit.prevent="submit">
         <div class="p-fluid">
@@ -32,6 +33,7 @@
         </div>
         
     </form>
+    </div>
 </template>
 
 <script>

@@ -12,6 +12,9 @@ import LoginPage from './components/pages/authentication/LoginPage.vue'
 import CarsSearchPage from './components/pages/cars/CarsSearchPage.vue'
 import AccountPage from './components/pages/account/AccountPage.vue'
 import userStore from './store/user-store';
+import { createI18n } from 'vue-i18n';
+import fr from './lang/cid.fr.json';
+import en from './lang/cid.en.json';
 
 
 const CarsAddPage = () => import(/* webpackChunckName: "cars" */ './components/pages/cars/CarsAddPage.vue')
@@ -19,10 +22,10 @@ const CarsListPage = () => import(/* webpackChunckName: "cars" */ './components/
 
 const routes = [
     { path: '/cars/add', component: CarsAddPage },
-    { path: '/cars/list', component: CarsListPage },
+    { path: '/cars/list', component: CarsListPage, meta: { transition: 'slide-left' } },
     { path: '/cars/search', component: CarsSearchPage },
     { path: '/login', component: LoginPage },
-    { path: '/account', component: AccountPage },
+    { path: '/account', component: AccountPage, meta: { transition: 'slide-right' } },
     //{ path: '/cars/detail/:id', component: CarsListPage },
     { path: '/', component: HomePage }
 ];
@@ -32,13 +35,22 @@ const router = createRouter({
     routes
 });
 
-
 const store = createStore(userStore);
+
+const i18n = createI18n({
+    legacy: 'false',
+    language: 'fr',
+    messages: {
+        fr: fr,
+        en: en,
+    }
+});
 
 createApp(App)
     .use(router)
     .use(PrimeVue)
     .use(store)
+    .use(i18n)
     .mount('#app');
 
 

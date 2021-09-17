@@ -11,17 +11,17 @@
             <router-link to="/account">Mon compte</router-link>
             </div>
             <div v-else>
-            <router-link to="/login">Se connecter</router-link>
+            <router-link to="/login">{{$t("cars")}}</router-link>
             </div>
         </template>
     </Menubar>  
   </nav>
 </template>
 <script>
+import Menubar from 'primevue/menubar'
+import { mapGetters, useStore } from 'vuex';
 export default {
-    /*setup(){
-        let store = useStore();
-    },*/
+   
 computed:{
         /*isConnected(){
             return this.$store.getters.isConnected;
@@ -42,7 +42,7 @@ data(){
                     to: '/'
                 },
                 {
-                    label: 'Voitures',
+                    label: t('Cars'),
                     icon: 'pi pi-fw pi-file',
                     items:[
                         {
@@ -78,10 +78,7 @@ mounted(){
 };
 </script>
 
-<script setup>
-import Menubar from 'primevue/menubar'
-import { mapGetters, useStore } from 'vuex';
-</script>
+
 
 
 <style scoped>

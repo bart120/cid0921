@@ -1,7 +1,9 @@
 <template>
-    <h1>Mon compte</h1>
-    <p>Modification du compte {{user?.name}}</p>
-    <InfoAccount></InfoAccount>
+    <div>
+        <h1>Mon compte</h1>
+        <p>Modification du compte {{user?.name}}</p>
+        <InfoAccount></InfoAccount>
+    </div>
 </template>
 
 <script>

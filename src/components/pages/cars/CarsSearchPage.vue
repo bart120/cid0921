@@ -1,4 +1,5 @@
 <template>
+<div>
     <h1>Rechercher une voiture</h1>
     <form>
         
@@ -12,6 +13,7 @@
                 <button type="submit">Enregistrer</button>
             </div>        
     </form>
+    </div>
 </template>
 
 <script>

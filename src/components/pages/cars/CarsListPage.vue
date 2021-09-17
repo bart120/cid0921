@@ -1,4 +1,5 @@
 <template>
+<div>
     <h1>Liste des voitures</h1>
     <table>
         <thead>
@@ -18,6 +19,7 @@
             </tr>
         </tbody>
     </table>
+    </div>
 </template>
 
 <script setup>
@@ -45,7 +47,7 @@ export default {
                 }));
             }*/
 
-            Promise.all(tab).then(cars =>{
+            Promise.all(proms).then(cars =>{
                 this.cars = cars;
                 //console.log('all', this.cars);
             });
