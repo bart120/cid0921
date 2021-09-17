@@ -5,7 +5,7 @@ export const brandsMixin = {
         return { brands: [] };
     },
     mounted() {
-        console.log('mounted mix', this);
+        console.log('mounted mix', BrandService.getBrands());
         BrandService.getBrands().then((data) => {
             this.brands = data;
         });

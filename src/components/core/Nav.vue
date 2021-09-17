@@ -4,19 +4,35 @@
         <template #items>
             <router-link :to="item.to">{{item.label}}</router-link>
         </template>
-        </Menubar>  
-  
-  
+        <template #end >
+            <div v-if="isConnected">
+                Bonjour {{user?.name}}
+            <button @click="logout">Se déconnecter</button>
+            </div>
+            <div v-else>
+            <router-link to="/login">Se connecter</router-link>
+            </div>
+        </template>
+    </Menubar>  
   </nav>
 </template>
-
-<script setup>
-import Menubar from 'primevue/menubar'
-</script>
 <script>
-
 export default {
-    data(){
+    /*setup(){
+        let store = useStore();
+    },*/
+computed:{
+        /*isConnected(){
+            return this.$store.getters.isConnected;
+        }*/
+        ...mapGetters(['isConnected', 'user'])
+    },
+    methods:{
+         logout(){
+             this.$store.dispatch('logout');
+         }
+    },
+data(){
         return{
             items: [
                 {
@@ -33,7 +49,7 @@ export default {
                             icon: 'pi pi-fw pi-file',
                             to: '/cars/add'
                         },
-{
+                        {
                             label: 'Lister les voitures',
                             icon: 'pi pi-fw pi-file',
                             to: '/cars/list'
@@ -44,17 +60,26 @@ export default {
                             to: '/cars/search'
                         }
                     ]
-                },
+                }/*,
                 {
-                            label: 'Se connecter',
-                            icon: 'pi pi-fw pi-file',
+                    label: 'Se connecter',
+                    icon: 'pi pi-fw pi-file',
                     to: '/login'
-                        }
-                
+                }*/
             ]
-        }
+        };
+    },
+mounted(){
+        //if(sessionStorage.getItem('USER'))
+        //    this.user = JSON.parse(sessionStorage.getItem('USER'));
+        //console.log(this.isConnected);
     }
-}
+};
+</script>
+
+<script setup>
+import Menubar from 'primevue/menubar'
+import { mapGetters, useStore } from 'vuex';
 </script>
 
 

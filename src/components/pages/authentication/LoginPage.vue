@@ -29,9 +29,17 @@ data(){
         };
     },
 methods:{
+        //...mapActions['login','logout'],
+        //...mapMutations['login'],
         submit(){
-            console.log(this.user);
-            //appel serveur
+            //console.log(this.user);
+            //this.login(this.user.login, this.user.password);
+            this.$store.dispatch('login', this.user.login, this.user.password);
+            //this.$store.commit('maMutation', payload);
+
+
+            //const u = {name: 'Bob', mail: this.user.login, token: 'DSGQFGZ356Y4ERHGF'};
+            //sessionStorage.setItem('USER', JSON.stringify(u));
             this.$router.push({path:"/"});
         },
         onError(obj){
@@ -42,6 +50,7 @@ methods:{
 </script>
 
 <script setup>
+import { mapActions, mapMutations } from 'vuex';
 import InputCid from '../../core/InputCid.vue'
 import InputMail from '../../core/InputMail.vue'
 import InputMailLabel from '../../core/InputMailLabel.vue'
