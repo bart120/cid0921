@@ -1,5 +1,11 @@
 {
-    "home": "Accueil",
-    "cars": "Voitures",
-    "add_car": "Ajouter une voiture"
+    "menu": {
+        "home": "Accueil",
+        "cars": "Voitures",
+        "add_car": "Ajouter une voiture",
+        "login": "Se connecter"
+    },
+    "cars": {
+        "title_add": "Ajouter une voiture"
+    }
 }

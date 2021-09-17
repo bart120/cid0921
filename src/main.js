@@ -39,7 +39,8 @@ const store = createStore(userStore);
 
 const i18n = createI18n({
     legacy: 'false',
-    language: 'fr',
+    locale: 'fr',
+    fallbackLocale: 'en',
     messages: {
         fr: fr,
         en: en,

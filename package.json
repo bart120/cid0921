@@ -18,6 +18,7 @@
     "@vue/compiler-sfc": "^3.0.4",
     "sass": "^1.26.11",
     "sass-loader": "^10.0.2",
-    "vite": "^1.0.0-rc.13"
+    "vite": "^1.0.0-rc.13",
+    "vue-cli-plugin-i18n": "~2.1.3"
   }
 }
