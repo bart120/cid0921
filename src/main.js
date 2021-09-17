@@ -41,6 +41,15 @@ const i18n = createI18n({
     legacy: 'false',
     locale: 'fr',
     fallbackLocale: 'en',
+    datetimeFormats: {
+        'fr-FR': {
+            long: {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric'
+            }
+        }
+    },
     messages: {
         fr: fr,
         en: en,
