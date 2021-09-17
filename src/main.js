@@ -21,7 +21,7 @@ const CarsAddPage = () => import(/* webpackChunckName: "cars" */ './components/p
 const CarsListPage = () => import(/* webpackChunckName: "cars" */ './components/pages/cars/CarsListPage.vue')
 
 const routes = [
-    { path: '/cars/add', component: CarsAddPage },
+    { path: '/cars/add', component: CarsAddPage, meta: { transition: 'slide-left', authenticated: true, roles: ['ADMIN'] } },
     { path: '/cars/list', component: CarsListPage, meta: { transition: 'slide-left' } },
     { path: '/cars/search', component: CarsSearchPage },
     { path: '/login', component: LoginPage },
@@ -29,13 +29,27 @@ const routes = [
     //{ path: '/cars/detail/:id', component: CarsListPage },
     { path: '/', component: HomePage }
 ];
+const store = createStore(userStore);
 
 const router = createRouter({
     history: createWebHistory(),
     routes
 });
 
-const store = createStore(userStore);
+router.beforeEach((to, from, next) => {
+    if (to.matched.some(x => x.meta.authenticated)) {
+        const user = store.getters.user;
+        if (user == null) {
+            next("/login");
+        } else {
+            next();
+        }
+    } else {
+        next();
+    }
+});
+
+
 
 const i18n = createI18n({
     legacy: 'false',
