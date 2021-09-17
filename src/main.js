@@ -10,6 +10,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from './components/pages/HomePage.vue'
 import LoginPage from './components/pages/authentication/LoginPage.vue'
 import CarsSearchPage from './components/pages/cars/CarsSearchPage.vue'
+import AccountPage from './components/pages/account/AccountPage.vue'
 import userStore from './store/user-store';
 
 
@@ -21,6 +22,7 @@ const routes = [
     { path: '/cars/list', component: CarsListPage },
     { path: '/cars/search', component: CarsSearchPage },
     { path: '/login', component: LoginPage },
+    { path: '/account', component: AccountPage },
     //{ path: '/cars/detail/:id', component: CarsListPage },
     { path: '/', component: HomePage }
 ];
@@ -29,6 +31,7 @@ const router = createRouter({
     history: createWebHistory(),
     routes
 });
+
 
 const store = createStore(userStore);
 

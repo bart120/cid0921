@@ -8,6 +8,7 @@
             <div v-if="isConnected">
                 Bonjour {{user?.name}}
             <button @click="logout">Se déconnecter</button>
+            <router-link to="/account">Mon compte</router-link>
             </div>
             <div v-else>
             <router-link to="/login">Se connecter</router-link>
