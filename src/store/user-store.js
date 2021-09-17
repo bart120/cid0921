@@ -1,11 +1,13 @@
 const state = {
-    user: {
+    /*user: {
         name: '',
         mail: '',
         token: ''
     },
-    isConnected: false
-    //sessionStorage.getItem('USER') ? JSON.parse(sessionStorage.getItem('USER')) : 
+    isConnected: false*/
+
+    user: sessionStorage.getItem('USER') ? JSON.parse(sessionStorage.getItem('USER')) : null,
+    isConnected: sessionStorage.getItem('USER') != null
 }
 
 const getters = {
@@ -21,10 +23,12 @@ const mutations = {
     login(state, payload) {
         state.user = payload;
         state.isConnected = true;
+        sessionStorage.setItem('USER', JSON.stringify(payload));
     },
     logout(state) {
         state.user = {};
         state.isConnected = false;
+        sessionStorage.removeItem('USER');
     }
 }
 
